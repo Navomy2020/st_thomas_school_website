@@ -1,0 +1,308 @@
+/* --- Global Reset & Variables --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primary-blue: #0b2545;
+    --accent-teal: #17c3b2;
+    --light-bg: #f8f9fa;
+    --white: #ffffff;
+    --text-dark: #333333;
+    --text-muted: #666666;
+}
+
+body {
+    color: var(--text-dark);
+    background-color: var(--white);
+    line-height: 1.6;
+}
+
+/** header **/
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 8%;
+    background: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+    cursor: pointer;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    font-weight: 800;
+    padding: 10px 14px;
+    border-radius: 6px;
+    border: 2px solid var(--accent-teal);
+}
+
+.logo-text h1 {
+    font-size: 1.3rem;
+    color: var(--primary-blue);
+    letter-spacing: 0.5px;
+}
+
+.logo-text p {
+    font-size: 0.8rem;
+    color: var(--accent-teal);
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 32px;
+    /* Increased item spacing for broader viewports */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--primary-blue);
+    font-weight: 600;
+    font-size: 1.15rem;
+    /* Increased size from 0.95rem */
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--accent-teal);
+}
+
+nav a {
+    position: relative;
+}
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #17c3b2;
+    transition: .3s;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a.btn-apply {
+    background-color: var(--accent-teal);
+    color: var(--primary-blue);
+    padding: 8px 20px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a.btn-apply:hover {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+
+/* --- Hero Section --- */
+.hero {
+    position: relative;
+    min-height: 85vh;
+    background:
+        linear-gradient(rgba(11, 37, 69, .72),
+            rgba(11, 37, 69, .62)),
+        url("school.png");
+
+    background-size: cover;
+    background-position: 60% center;
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 37, 69, 0.55);
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero-content h2 {
+    font-size: clamp(2.8rem, 8vw, 5rem);
+    line-height: 1.1;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: white;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, .5);
+}
+
+
+
+.hero-badge {
+    background: rgba(11, 37, 69, .85);
+    border: 1px solid #2dd4bf;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+
+
+.hero-content h2 .highlight {
+    color: #2dd4bf;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, .5);
+}
+
+.highlight-text {
+    font-family: 'Outfit', sans-serif;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    max-width: 700px;
+    opacity: 0.9;
+    color: white;
+    font-family: "Manrope", sans-serif;
+
+}
+
+.hero-cta {
+    display: flex;
+    gap: 15px;
+}
+
+.hero-cta a {
+    text-decoration: none;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    transform: translateY(-3px);
+}
+
+.btn-primary {
+    background-color: var(--accent-teal);
+    color: var(--primary-blue);
+}
+
+.btn-primary:hover {
+    background-color: var(--white);
+    color: var(--primary-blue);
+}
+
+.btn-secondary {
+    border: 2px solid var(--white);
+    color: var(--white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--white);
+    color: var(--primary-blue);
+}
+
+
+/* --- Responsive Adjustments --- */
+@media(max-width:768px) {
+
+    header {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+
+    .hero-content h2 {
+        text-align: center;
+    }
+
+    .hero-content p {
+
+        text-align: center;
+    }
+
+    .menu-btn {
+        display: block;
+
+    }
+
+    .hero-content h2 {
+        font-size: 3.2rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 200px;
+        text-align: center;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .nav-links.show {
+        display: block;
+    }
+
+    .nav-links ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+
+    .hero-cta {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo-text h1 {
+        font-size: 1.15rem;
+    }
+
+
+}
